@@ -1,0 +1,54 @@
+import openpyxl
+from openpyxl.utils import get_column_letter
+from numpy import column_stack
+
+myFile = openpyxl.load_workbook('chawin_atm_cust.xlsx')  #open excel sheet
+mySheet = myFile.get_sheet_by_name('Sheet1')
+
+counter = 'no'
+myName = []
+myPass = []
+myBalance = []
+
+def checkPass(password):   #function for checking if password has 6 numbers
+
+    Bool = all(i in '1234567890' for i in password)
+    
+    if (len(password) != 6 or Bool == False):
+        print("Password must contain 6 numbers only")
+        return False
+
+    return True
+
+while counter != 'yes':  #adding client data
+
+    x = input("Enter your name: ")
+    y = input("Please enter 6 digit pin: ")
+
+    checking = checkPass(y)
+
+    while checking != True:  #loop for checking password criteria
+
+        y = input("Please enter 6 digit pin: ")
+        checking = checkPass(y)
+        
+        if checking == True:
+            break          #end of password checking loop
+
+    myName.append(x)
+    myPass.append(y)
+    myBalance.append("0")
+
+    counter = input("Enter 'yes' to stop adding, 'no' to continue: ")
+
+    if counter == "yes":
+        break                  # end of loop for adding client detail
+
+
+Data_out = column_stack([myName, myPass, myBalance])
+
+for row in Data_out.tolist():                    #appending to excel sheet
+    mySheet.append(row)
+
+myFile.save(filename = r"filename")
+
