@@ -1,0 +1,422 @@
+# pythonProjects
+import csv
+
+from itertools import islice
+
+outData = []
+collection = []
+
+def checkItem(item, rowItem): #function to check item by item of each category and return 1 or zero
+	verify = 0
+	if rowItem == item:
+		verify = str(1)
+	else:
+		verify = str(0)
+	return verify
+
+def checkSpread(spreadValue): #function to check and return value of spead, return 0 if there is no spread value
+	mySpread = 0
+	if spreadValue == '':
+		mySpread = 0
+	else:
+		mySpread = spreadValue
+	return mySpread
+	
+with open('mydata.csv', 'r') as file: #open csv file
+	myfile = islice(file, 3, None) #ignore first 3 lines of csv file
+	myFile = csv.reader(myfile, delimiter = ',') #read the file with , as delimeter
+	
+	for row in myFile:          #start of the for loop for each row
+		outData.append(checkSpread(row[8]))        #append all the yield
+		outData.append(checkSpread(row[9]))		
+		outData.append(checkSpread(row[10]))	
+		outData.append(checkSpread(row[11]))		
+		outData.append(checkSpread(row[12]))	
+		outData.append(checkSpread(row[13]))	
+		outData.append(checkSpread(row[14]))
+		outData.append(checkSpread(row[15]))
+		outData.append(checkSpread(row[16]))
+		outData.append(checkSpread(row[17]))	
+		outData.append(checkSpread(row[18]))	
+		 #end of appending the yield
+			
+		#for rating of different spreads
+		
+		outData.append(checkItem('AAA', row[20])) #AAA for 6 months
+		outData.append(checkItem('AA', row[20])) #AA for 6 months
+		outData.append(checkItem('A', row[20])) #A for 6 months
+		outData.append(checkItem('BBB', row[20])) #BBB for 6 months
+		outData.append(checkItem('BB', row[20])) #BB for 6 months
+		outData.append(checkItem('B', row[20])) #B for 6 months
+		outData.append(checkItem('CCC', row[20])) #CCC for 6 months
+		
+		outData.append(checkItem('AAA', row[21])) #AAA for 1 year
+		outData.append(checkItem('AA', row[21])) #AA for 1 year
+		outData.append(checkItem('A', row[21])) #A for 1 year
+		outData.append(checkItem('BBB', row[21])) #BBB for 1 year
+		outData.append(checkItem('BB', row[21])) #BB for 1 year
+		outData.append(checkItem('B', row[21])) #B for 1 year
+		outData.append(checkItem('CCC', row[21])) #CCC for 1 year
+		
+		outData.append(checkItem('AAA', row[22])) #AAA for 2 year
+		outData.append(checkItem('AA', row[22])) #AA for 2 year
+		outData.append(checkItem('A', row[22])) #A for 2 year
+		outData.append(checkItem('BBB', row[22])) #BBB for 2 year
+		outData.append(checkItem('BB', row[22])) #BB for 2 year
+		outData.append(checkItem('B', row[22])) #B for 2 year
+		outData.append(checkItem('CCC', row[22])) #CCC for 2 year
+		
+		outData.append(checkItem('AAA', row[23])) #AAA for 3 year
+		outData.append(checkItem('AA', row[23])) #AA for 3 year
+		outData.append(checkItem('A', row[23])) #A for 3 year
+		outData.append(checkItem('BBB', row[23])) #BBB for 3 year
+		outData.append(checkItem('BB', row[23])) #BB for 3 year
+		outData.append(checkItem('B', row[23])) #B for 3 year
+		outData.append(checkItem('CCC', row[23])) #CCC for 3 year
+		
+		outData.append(checkItem('AAA', row[24])) #AAA for 4 year
+		outData.append(checkItem('AA', row[24])) #AA for 4 year
+		outData.append(checkItem('A', row[24])) #A for 4 year
+		outData.append(checkItem('BBB', row[24])) #BBB for 4 year
+		outData.append(checkItem('BB', row[24])) #BB for 4 year
+		outData.append(checkItem('B', row[24])) #B for 4 year
+		outData.append(checkItem('CCC', row[24])) #CCC for 4 year
+		
+		outData.append(checkItem('AAA', row[25])) #AAA for 5 year
+		outData.append(checkItem('AA', row[25])) #AA for 5 year
+		outData.append(checkItem('A', row[25])) #A for 5 year
+		outData.append(checkItem('BBB', row[25])) #BBB for 5 year
+		outData.append(checkItem('BB', row[25])) #BB for 5 year
+		outData.append(checkItem('B', row[25])) #B for 5 year
+		outData.append(checkItem('CCC', row[25])) #CCC for 5 year
+		
+		outData.append(checkItem('AAA', row[26])) #AAA for 7 year
+		outData.append(checkItem('AA', row[26])) #AA for 7 year
+		outData.append(checkItem('A', row[26])) #A for 7 year
+		outData.append(checkItem('BBB', row[26])) #BBB for 7 year
+		outData.append(checkItem('BB', row[26])) #BB for 7 year
+		outData.append(checkItem('B', row[26])) #B for 7 year
+		outData.append(checkItem('CCC', row[26])) #CCC for 7 year
+		
+		outData.append(checkItem('AAA', row[27])) #AAA for 10 year
+		outData.append(checkItem('AA', row[27])) #AA for 10 year
+		outData.append(checkItem('A', row[27])) #A for 10 year
+		outData.append(checkItem('BBB', row[27])) #BBB for 10 year
+		outData.append(checkItem('BB', row[27])) #BB for 10 year
+		outData.append(checkItem('B', row[27])) #B for 10 year
+		outData.append(checkItem('CCC', row[27])) #CCC for 10 year
+		
+		outData.append(checkItem('AAA', row[28])) #AAA for 15 year
+		outData.append(checkItem('AA', row[28])) #AA for 15 year
+		outData.append(checkItem('A', row[28])) #A for 15 year
+		outData.append(checkItem('BBB', row[28])) #BBB for 15 year
+		outData.append(checkItem('BB', row[28])) #BB for 15 year
+		outData.append(checkItem('B', row[28])) #B for 15 year
+		outData.append(checkItem('CCC', row[28])) #CCC for 15 year
+		
+		
+		outData.append(checkItem('AAA', row[29])) #AAA for 20 year
+		outData.append(checkItem('AA', row[29])) #AA for 20 year
+		outData.append(checkItem('A', row[29])) #A for 20 year
+		outData.append(checkItem('BBB', row[29])) #BBB for 20 year
+		outData.append(checkItem('BB', row[29])) #BB for 20 year
+		outData.append(checkItem('B', row[29])) #B for 20 year
+		outData.append(checkItem('CCC', row[29])) #CCC for 20 year
+		
+		outData.append(checkItem('AAA', row[30])) #AAA for 30 year
+		outData.append(checkItem('AA', row[30])) #AA for 30 year
+		outData.append(checkItem('A', row[30])) #A for 30 year
+		outData.append(checkItem('BBB', row[30])) #BBB for 30 year
+		outData.append(checkItem('BB', row[30])) #BB for 30 year
+		outData.append(checkItem('B', row[30])) #B for 30 year
+		outData.append(checkItem('CCC', row[30])) #CCC for 30 year
+		
+		#for sector
+		outData.append(checkItem('Basic Materials', row[33])) #for basic materials
+		outData.append(checkItem('Consumer Goods', row[33])) #for consumer goods
+		outData.append(checkItem('Consumer Services', row[33])) #for consumer Services
+		outData.append(checkItem('Energy', row[33])) #for Energy Services
+		outData.append(checkItem('Financials', row[33])) #for financials Services
+		outData.append(checkItem('Government', row[33])) #for government Services
+		outData.append(checkItem('Healthcare', row[33])) #for healthcare 
+		outData.append(checkItem('Industrials', row[33])) #for industrials
+		outData.append(checkItem('Technology', row[33])) #for technology
+		outData.append(checkItem('Telecommunications Services', row[33])) #telecom
+		outData.append(checkItem('Utilities', row[33])) #for utilities
+		
+		
+		#for region
+		outData.append(checkItem('Africa', row[34])) #for Africa
+		outData.append(checkItem('Asia', row[34])) #for Asia
+		outData.append(checkItem('Caribbean', row[34])) #for Caribbean
+		outData.append(checkItem('E.Eur', row[34])) #for E.europe
+		outData.append(checkItem('Europe', row[34])) #for Europe
+		outData.append(checkItem('India', row[34])) #for India
+		outData.append(checkItem('Lat.Amer', row[34])) #for Lat.America
+		outData.append(checkItem('MiddleEast', row[34])) #for Middle East
+		outData.append(checkItem('N.Amer', row[34])) #for E.europe
+		outData.append(checkItem('Oceania', row[34])) #for Oceania
+		outData.append(checkItem('OffShore', row[34])) #for OffShore
+		outData.append(checkItem('Pacific', row[34])) #for Pacific
+		outData.append(checkItem('Supra', row[34])) #for Supra
+		
+		
+		#for country
+		outData.append(checkItem('Nigeria', row[35])) #for Nigeria
+		outData.append(checkItem('Trinidad and Tobago', row[35])) #for Trinidad and Tobago
+		outData.append(checkItem('Barbados', row[35])) #for Barbados
+		outData.append(checkItem('Macedonia', row[35])) #for Macedonia
+		outData.append(checkItem('American Samoa', row[35])) #for American Samoa
+		outData.append(checkItem('Andorra', row[35])) #for Andorra
+		outData.append(checkItem('Anguilla', row[35])) #for Anguilla
+		outData.append(checkItem('Antigua and Barbuda', row[35])) #for Antigua and Barbuda
+		outData.append(checkItem('Armenia', row[35])) #for Armenia
+		outData.append(checkItem('Azerbaijan', row[35])) #for Azerbaijan
+		outData.append(checkItem('Bangladesh', row[35])) #for Bangladesh
+		outData.append(checkItem('Belarus', row[35])) #for Belarus
+		outData.append(checkItem('Benin', row[35])) #for Benin
+		outData.append(checkItem('Bhutan', row[35])) #for Bhutan
+		outData.append(checkItem('Bolivia', row[35])) #for Bolivia
+		outData.append(checkItem('Bosnia and Herzegovina', row[35])) #for Bosnia and Herzegovina
+		outData.append(checkItem('Botswana', row[35])) #for Botswana
+		outData.append(checkItem('Burkina Faso', row[35])) #for Burkina Faso
+		outData.append(checkItem('Burundi', row[35])) #for Burundi
+		outData.append(checkItem('Cambodia', row[35])) #for Cambodia
+		outData.append(checkItem('Cameroon', row[35])) #for Cameroon
+		outData.append(checkItem('Afghanistan', row[35])) #for Afghanistan
+		outData.append(checkItem('Algeria', row[35])) #for Algeria
+		outData.append(checkItem('Angola', row[35])) #for Angola
+		outData.append(checkItem('Argentina', row[35])) #for Argentina
+		outData.append(checkItem('Aruba', row[35])) #for Aruba
+		outData.append(checkItem('Australia', row[35])) #for Australia
+		outData.append(checkItem('Austria', row[35])) #for Austria
+		outData.append(checkItem('Bahamas', row[35])) #for Bahamas
+		outData.append(checkItem('Bahrain', row[35])) #for Bahrain
+		outData.append(checkItem('Belgium', row[35])) #for Belgium
+		outData.append(checkItem('Belize', row[35])) #for Belize
+		outData.append(checkItem('Bermuda', row[35])) #for Bermuda
+		outData.append(checkItem('Brazil', row[35])) #for Brazil
+		outData.append(checkItem('British Virgin Islands', row[35])) #for British Virgin Islands
+		outData.append(checkItem('Brunei Darussalam', row[35])) #for Brunei Darussalam
+		outData.append(checkItem('Bulgaria', row[35])) #for Bulgaria
+		outData.append(checkItem('Canada', row[35])) #for Canada
+		outData.append(checkItem('Cayman Islands', row[35])) #for Cayman Islands
+		outData.append(checkItem('Chile', row[35])) #for Chile
+		outData.append(checkItem('China', row[35])) #for China
+		outData.append(checkItem('Colombia', row[35])) #for Colombia
+		outData.append(checkItem('Costa Rica', row[35])) #for Costa Rica
+		outData.append(checkItem('Croatia', row[35])) #for Croatia
+		outData.append(checkItem('Curacao', row[35])) #for Curacao
+		outData.append(checkItem('Cyprus', row[35])) #for Cyprus
+		outData.append(checkItem('Czech Republic', row[35])) #for Czech Republic
+		outData.append(checkItem('Democratic Republic of the Congo', row[35])) #for Democratic Republic of the Congo
+		outData.append(checkItem('Denmark', row[35])) #for Denmark
+		outData.append(checkItem('Dominican Republic', row[35])) #for Dominican Republic
+		outData.append(checkItem('Ecuador', row[35])) #for Ecuador
+		outData.append(checkItem('Egypt', row[35])) #for Egypt
+		outData.append(checkItem('El Salvador', row[35])) #for El Salvador
+		outData.append(checkItem('Estonia', row[35])) #for Estonia
+		outData.append(checkItem('Fiji', row[35])) #for Fiji
+		outData.append(checkItem('Finland', row[35])) #for Finland
+		outData.append(checkItem('France', row[35])) #for France
+		outData.append(checkItem('Georgia', row[35])) #for Georgia
+		outData.append(checkItem('Germany', row[35])) #for Germany
+		outData.append(checkItem('Ghana', row[35])) #for Ghana
+		outData.append(checkItem('Gibraltar', row[35])) #for Gibraltar
+		outData.append(checkItem('Greece', row[35])) #for Greece
+		outData.append(checkItem('Guatemala', row[35])) #for Guatemala
+		outData.append(checkItem('Guernsey', row[35])) #for Guernsey
+		outData.append(checkItem('Hong Kong', row[35])) #for Hong Kong
+		outData.append(checkItem('Hungary', row[35])) #for Hungary
+		outData.append(checkItem('Iceland', row[35])) #for Iceland
+		outData.append(checkItem('India', row[35])) #for India
+		outData.append(checkItem('Indonesia', row[35])) #for Indonesia
+		outData.append(checkItem('Iraq', row[35])) #for Iraq
+		outData.append(checkItem('Ireland', row[35])) #for Ireland
+		outData.append(checkItem('Isle of Man', row[35])) #for Isle of Man
+		outData.append(checkItem('Israel', row[35])) #for Israel
+		outData.append(checkItem('Italy', row[35])) #for Italy
+		outData.append(checkItem('Jamaica', row[35])) #for Jamaica
+		outData.append(checkItem('Japan', row[35])) #for Japan
+		outData.append(checkItem('Jersey', row[35])) #for Jersey
+		outData.append(checkItem('Jordan', row[35])) #for Jordan
+		outData.append(checkItem('Kazakhstan', row[35])) #for Kazakhstan
+		outData.append(checkItem('Korea (Republic of)', row[35])) #for Korea (Republic of)
+		outData.append(checkItem('Kuwait', row[35])) #for Kuwait
+		outData.append(checkItem('Latvia', row[35])) #for Latvia
+		outData.append(checkItem('Lebanon', row[35])) #for Lebanon
+		outData.append(checkItem('Liberia', row[35])) #for Liberia
+		outData.append(checkItem('Liechtenstein', row[35])) #for Liechtenstein
+		outData.append(checkItem('Lithuania', row[35])) #for Lithuania
+		outData.append(checkItem('Luxembourg', row[35])) #for Luxembourg
+		outData.append(checkItem('Macao', row[35])) #for Macao
+		outData.append(checkItem('Malaysia', row[35])) #for Malaysia
+		outData.append(checkItem('Malta', row[35])) #for Malta
+		outData.append(checkItem('Marshall Islands', row[35])) #for Marshall Islands
+		outData.append(checkItem('Mauritius', row[35])) #for Mauritius
+		outData.append(checkItem('Mexico', row[35])) #for Mexico
+		outData.append(checkItem('Mongolia', row[35])) #for Mongolia
+		outData.append(checkItem('Morocco', row[35])) #for Morocco
+		outData.append(checkItem('Netherlands', row[35])) #for Netherlands
+		outData.append(checkItem('Netherlands Antilles', row[35])) #for Netherlands Antilles
+		outData.append(checkItem('New Zealand', row[35])) #for New Zealand
+		outData.append(checkItem('Norway', row[35])) #for Norway
+		outData.append(checkItem('Pakistan', row[35])) #for Pakistan
+		outData.append(checkItem('Albania', row[35])) #for Albania
+		outData.append(checkItem('Panama', row[35])) #for Panama
+		outData.append(checkItem('Peru', row[35])) #for Peru
+		outData.append(checkItem('Philippines', row[35])) #for Philippines
+		outData.append(checkItem('Poland', row[35])) #for Poland
+		outData.append(checkItem('Portugal', row[35])) #for Portugal
+		outData.append(checkItem('Puerto Rico', row[35])) #for Puerto Rico
+		outData.append(checkItem('Qatar', row[35])) #for Qatar
+		outData.append(checkItem('Romania', row[35])) #for Romania
+		outData.append(checkItem('Russian Federation', row[35])) #for Russian Federation
+		outData.append(checkItem('Saudi Arabia', row[35])) #for Saudi Arabia
+		outData.append(checkItem('Senegal', row[35])) #for Senegal 
+		outData.append(checkItem('Serbia', row[35])) #for Serbia
+		outData.append(checkItem('Singapore', row[35])) #for Singapore
+		outData.append(checkItem('Slovakia', row[35])) #for Slovakia
+		outData.append(checkItem('Slovenia', row[35])) #for Slovenia
+		outData.append(checkItem('South Africa', row[35])) #for South Africa
+		outData.append(checkItem('Spain', row[35])) #for Spain
+		outData.append(checkItem('Sri Lanka', row[35])) #for Sri Lanka
+		outData.append(checkItem('Supra National', row[35])) #for Supra National
+		outData.append(checkItem('Sweden', row[35])) #for Sweden
+		outData.append(checkItem('Switzerland', row[35])) #for Switzerland
+		outData.append(checkItem('Taiwan Province of China', row[35])) #for Taiwan Province of China
+		outData.append(checkItem('Thailand', row[35])) #for Thailand
+		outData.append(checkItem('Tunisia', row[35])) #for Tunisia
+		outData.append(checkItem('Turkey', row[35])) #for Turkey
+		outData.append(checkItem('Ukraine', row[35])) #for Ukraine
+		outData.append(checkItem('United Arab Emirates', row[35])) #for United Arab Emirates
+		outData.append(checkItem('United Kingdom', row[35])) #for United Kingdom
+		outData.append(checkItem('United States', row[35])) #for United States
+		outData.append(checkItem('Uruguay', row[35])) #for Uruguay
+		outData.append(checkItem('Venezuela', row[35])) #for Venezuela
+		outData.append(checkItem('Viet Nam', row[35])) #for Viet Nam
+		outData.append(checkItem('Cape Verde', row[35])) #for Cape Verde
+		outData.append(checkItem('Central African Republic', row[35])) #for Central African Republic
+		outData.append(checkItem('Chad', row[35])) #for Chad
+		outData.append(checkItem('Coast Ivory', row[35])) #for Coast Ivory
+		outData.append(checkItem('Comoros', row[35])) #for Comoros
+		outData.append(checkItem('Congo', row[35])) #for Congo
+		outData.append(checkItem('Cook Islands', row[35])) #for Cook Islands
+		outData.append(checkItem('Cuba', row[35])) #for Cuba
+		outData.append(checkItem('Djibouti', row[35])) #for Djibouti
+		outData.append(checkItem('Dominica', row[35])) #for Dominica
+		outData.append(checkItem('East Timor', row[35])) #for East Timor
+		outData.append(checkItem('Equatorial Guinea', row[35])) #for Equatorial Guinea
+		outData.append(checkItem('Eritrea', row[35])) #for Eritrea
+		outData.append(checkItem('Ethiopia', row[35])) #for Ethiopia
+		outData.append(checkItem('Faeroe Islands', row[35])) #for Faeroe Islands
+		outData.append(checkItem('Falkland Islands', row[35])) #for Falkland Islands
+		outData.append(checkItem('French Guiana', row[35])) #for French Guiana
+		outData.append(checkItem('French Polynesia', row[35])) #for French Polynesia
+		outData.append(checkItem('Gabon', row[35])) #for Gabon
+		outData.append(checkItem('Gambia', row[35])) #for Gambia
+		outData.append(checkItem('Greenland', row[35])) #for Greenland
+		outData.append(checkItem('Grenada', row[35])) #for Grenada
+		outData.append(checkItem('Guadeloupe', row[35])) #for Guadeloupe
+		outData.append(checkItem('Guam', row[35])) #for Guam
+		outData.append(checkItem('Guinea', row[35])) #for Guinea
+		outData.append(checkItem('Guinea-Bissau', row[35])) #for Guinea-Bissau
+		outData.append(checkItem('Guyana', row[35])) #for Guyana
+		outData.append(checkItem('Haiti', row[35])) #for Haiti
+		outData.append(checkItem('Holy See', row[35])) #for Holy See
+		outData.append(checkItem('Honduras', row[35])) #for Honduras
+		outData.append(checkItem('Iran', row[35])) #for Iran
+		outData.append(checkItem('Kenya', row[35])) #for Kenya
+		outData.append(checkItem('Kiribati', row[35])) #for Kiribati
+		outData.append(checkItem('Kyrgyzstan', row[35])) #for Kyrgyzstan
+		outData.append(checkItem('Lao', row[35])) #for Lao
+		outData.append(checkItem('Lesotho', row[35])) #for Lesotho
+		outData.append(checkItem('Libyan Arab Jamahiriya', row[35])) #for Libyan Arab Jamahiriya
+		outData.append(checkItem('Madagascar', row[35])) #for Madagascar
+		outData.append(checkItem('Malawi', row[35])) #for Malawi
+		outData.append(checkItem('Maldives', row[35])) #for Maldives
+		outData.append(checkItem('Mali', row[35])) #for Mali
+		outData.append(checkItem('Martinique', row[35])) #for Martinique
+		outData.append(checkItem('Mauritania', row[35])) #for Mauritania
+		outData.append(checkItem('Micronesia', row[35])) #for Micronesia
+		outData.append(checkItem('Monaco', row[35])) #for Monaco
+		outData.append(checkItem('Montenegro', row[35])) #for Montenegro
+		outData.append(checkItem('Montserrat', row[35])) #for Montserrat
+		outData.append(checkItem('Mozambique', row[35])) #for Mozambique
+		outData.append(checkItem('Myanmar', row[35])) #for Myanmar
+		outData.append(checkItem('Namibia', row[35])) #for Namibia
+		outData.append(checkItem('Nauru', row[35])) #for Nauru
+		outData.append(checkItem('Nepal', row[35])) #for Nepal
+		outData.append(checkItem('New Caledonia', row[35])) #for New Caledonia
+		outData.append(checkItem('Nicaragua', row[35])) #for Nicaragua
+		outData.append(checkItem('Niger', row[35])) #for Niger
+		outData.append(checkItem('Niue', row[35])) #for Niue
+		outData.append(checkItem('Norfolk Island', row[35])) #for Norfolk Island
+		outData.append(checkItem('Northern Mariana Islands', row[35])) #for Northern Mariana Islands
+		outData.append(checkItem('Oman', row[35])) #for Oman
+		outData.append(checkItem('Palau', row[35])) #for Palau
+		outData.append(checkItem('Palestine', row[35])) #for Palestine
+		outData.append(checkItem('Papua New Guinea', row[35])) #for Papua New Guinea
+		outData.append(checkItem('Paraguay', row[35])) #for Paraguay
+		outData.append(checkItem('Peoples Republic of Korea', row[35])) #for Peoples Republic of Korea
+		outData.append(checkItem('Pitcairn', row[35])) #for Pitcairn
+		outData.append(checkItem('Republic of Kosovo', row[35])) #for Republic of Kosovo
+		outData.append(checkItem('Republic of Moldova', row[35])) #for Republic of Moldova
+		outData.append(checkItem('Reunion', row[35])) #for Reunion
+		outData.append(checkItem('Rwanda', row[35])) #for Rwanda
+		outData.append(checkItem('Saint Helena', row[35])) #for Saint Helena
+		outData.append(checkItem('Saint Kitts and Nevis', row[35])) #for Saint Kitts and Nevis
+		outData.append(checkItem('Saint Lucia', row[35])) #for Saint Lucia
+		outData.append(checkItem('Saint Pierre and Miquelon', row[35])) #for Saint Pierre and Miquelon
+		outData.append(checkItem('Saint Vincent and the Grenadines', row[35])) #for Saint Vincent and the Grenadines
+		outData.append(checkItem('Samoa', row[35])) #for Samoa
+		outData.append(checkItem('San Marino', row[35])) #for San Marino
+		outData.append(checkItem('Sao Tome and Principe', row[35])) #for Sao Tome and Principe
+		outData.append(checkItem('Seychelles', row[35])) #for Seychelles
+		outData.append(checkItem('Sierra Leone', row[35])) #for Sierra Leone
+		outData.append(checkItem('Sint Maarten', row[35])) #for Sint Maarten
+		outData.append(checkItem('Solomon Islands', row[35])) #for Solomon Islands
+		outData.append(checkItem('Somalia', row[35])) #for Somalia
+		outData.append(checkItem('Sudan', row[35])) #for Sudan
+		outData.append(checkItem('Suriname', row[35])) #for Suriname
+		outData.append(checkItem('Svalbard and Jan Mayen Islands', row[35])) #for Svalbard and Jan Mayen Islands
+		outData.append(checkItem('Swaziland', row[35])) #for Swaziland
+		outData.append(checkItem('Syrian Arab Republic', row[35])) #for Syrian Arab Republic
+		outData.append(checkItem('Tajikistan', row[35])) #for Tajikistan
+		outData.append(checkItem('Tanzania', row[35])) #for Tanzania
+		outData.append(checkItem('Togo', row[35])) #for Togo
+		outData.append(checkItem('Tokelau', row[35])) #for Tokelau
+		outData.append(checkItem('Tonga', row[35])) #for Tonga
+		outData.append(checkItem('Turkmenistan', row[35])) #for Turkmenistan
+		outData.append(checkItem('Turks and Caicos Islands', row[35])) #for Turks and Caicos Islands
+		outData.append(checkItem('Tuvalu', row[35])) #for Tuvalu
+		outData.append(checkItem('Uganda', row[35])) #for Uganda
+		outData.append(checkItem('United States Virgin Islands', row[35])) #for United States Virgin Islands
+		outData.append(checkItem('Uzbekistan', row[35])) #for Uzbekistan
+		outData.append(checkItem('Vanuatu', row[35])) #for Vanuatu
+		outData.append(checkItem('Wallis and Futuna Islands', row[35])) #for Wallis and Futuna Islands
+		outData.append(checkItem('Western Sahara', row[35])) #for Western Sahara
+		outData.append(checkItem('Yemen', row[35])) #for Yemen
+		outData.append(checkItem('Zambia', row[35])) #for Zambia
+		outData.append(checkItem('Zimbabwe', row[35])) #for Zimbabwe
+		outData.append(checkItem('ARUBA', row[35])) #for ARUBA
+		outData.append(checkItem('Ivory Coast', row[35])) #for Ivory Coast
+		
+		#for tier
+		outData.append(checkItem('JRSUBUT2', row[4])) #for JRSUBUT2
+		outData.append(checkItem('SECDOM', row[4])) #for SECDOM
+		outData.append(checkItem('SNRFOR', row[4])) #for SNRFOR
+		outData.append(checkItem('SUBLT2', row[4])) #for SUBLT2
+		outData.append(checkItem('PREFT1', row[4])) #for PREFT1
+			
+		
+		collection.append(outData)
+		outData = []
+
+with open('checkedData.txt', 'a') as inFile: 	
+	for rows in collection:
+		inFile.write(str(rows))
+		inFile.write('\n')
+inFile.close()
+
+print('Done')
