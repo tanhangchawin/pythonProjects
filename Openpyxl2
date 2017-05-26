@@ -1,0 +1,163 @@
+from openpyxl import load_workbook
+
+wb = load_workbook(filename = r"filename", data_only = True)
+sheet = wb.get_sheet_by_name("Sheet1")
+
+def getcolumnA(n):                         #get cust name
+
+    x = []
+    for i in range(1, n+1, 1):
+        x.append('A' + str(i))
+    return x
+
+def columnvalueA(n):
+
+    y = []
+    for i in getcolumnA(n):
+        if sheet[i].value != None:
+           y.append(sheet[i].value)
+        if sheet[i].value == None:
+            pass
+    return y
+
+def getcolumnB(n):                           #get cust password
+
+    x = []
+    for i in range(1, n+1, 1):
+        x.append('B' + str(i))
+    return x
+
+def columnvalueB(n):
+
+    y = []
+    for i in getcolumnB(n):
+        if sheet[i].value != None:
+           y.append(sheet[i].value)
+        if sheet[i].value == None:
+            pass
+    return y
+
+def getcolumnC(n):                          #get cust money
+
+    x = []
+    for i in range(1, n+1, 1):
+        x.append('C' + str(i))
+    return x
+
+def columnvalueC(n):
+
+    y = []
+    for i in getcolumnC(n):
+        if sheet[i].value != None:
+           y.append(sheet[i].value)
+        if sheet[i].value == None:
+            pass
+    return y
+
+def checkPass(Input, Password, names, myName):       #function for checking password
+
+    for index, passes in enumerate(Password):
+
+        if Input == passes and myName == names[index]:
+            print("Welcome " + names[index] + " to the Billionaire Bank!")
+            return True
+
+    if Input != passes and myName != names[index]:
+            print("You have entered the wrong password or name.")
+            return False
+
+def checkMoney(withdrawAmount, compareMoneys):
+
+    if withdrawAmount > float(compareMoneys):
+        return False
+
+    return True
+        
+def deposit(Input, Password, moneys, columnIndex):  #function for deposit
+
+    for index, passes in enumerate(Password):  
+
+        if Input == passes:
+            deposit = float(input("Enter amount you wish to deposit: "))
+            newAmount = deposit + float(moneys[index])
+            sheet[columnIndex[index]] = str(newAmount)
+            print("Your new amount is: " + str(newAmount))
+            wb.save(filename = r"C:\Users\chawin\Dropbox\chawin's document\python tuts\chawin_atm_cust.xlsx")
+        
+            
+def withdrawal(Input, Password, moneys, columnIndex):  #function for withdrawal
+
+    for index, passes in enumerate(Password): 
+
+        if Input == passes:
+            withdraw = float(input("Enter amount you wish to withdraw: "))
+
+
+            while checkMoney(withdraw, moneys[index]) == False:
+                withdraw = float(input("You have exceeded the current amount in your bank: "))
+            
+            newAmount = float(moneys[index]) - withdraw
+            sheet[columnIndex[index]] = str(newAmount)
+            print("Your new amount is: " + str(newAmount))
+            wb.save(filename = r"C:\Users\chawin\Dropbox\chawin's document\python tuts\chawin_atm_cust.xlsx")
+
+def checkCond(myCond):                 #check if choice is entered correctly
+
+    if (myCond == 1 or myCond == 2):
+        return True
+
+    return False
+            
+            
+def main():
+
+    Range = 999
+
+    getname = getcolumnA(Range)
+    getName = columnvalueA(Range)
+    getpass = getcolumnB(Range)
+    getPass = columnvalueB(Range)
+    getmoney = getcolumnC(Range)
+    getMoney = columnvalueC(Range)
+    
+    CustLogin = input("Please enter 6 digit pin: ")
+    CustName = input("Please enter your name: ")
+    
+    login = checkPass(CustLogin, getPass, getName, CustName)
+
+    while login != True:     #login loop, breaks if password is correct
+
+        CustLogin = input("Please enter 6 digit pin: ")
+        CustName = input("Please enter your name: ")
+        login = checkPass(CustLogin, getPass, getName, CustName)
+
+    counter = 'yes'
+    while counter != 'no':   #atm function loop
+
+        choice = int(input("Press (1) for deposit, (2) for withdrawal: "))
+        checking = checkCond(choice)
+
+        while checking != True:
+
+            choice = int(input("Please enter only (1) for deposit or (2) for withdrawal: "))
+            checking = checkCond(choice)
+
+            if checking == True:
+                break
+
+        if choice == 1:
+            deposit(CustLogin, getPass, getMoney, getmoney)
+
+        if choice == 2:
+            withdrawal(CustLogin, getPass, getMoney, getmoney)
+
+        counter = input("Do you have any other operations to perform? Enter 'yes' to continue, 'no' if you do not: ")
+
+        if counter != 'no':                       #important!!!! must update the data in the money list after every iteration
+            getmoney = getcolumnC(Range)
+            getMoney = columnvalueC(Range)
+
+if __name__=="__main__":
+    main()
+
+input("Pres enter to exit")
